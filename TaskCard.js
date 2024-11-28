@@ -1,32 +1,28 @@
 import { CircleCheck } from "lucide-react-native";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
-
-const TaskCard = ({ title, desc, status, onClick }) => {
+const Taskcard = ({ title, description, status, onClick }) => {
     return (
         <View style={styles.card}>
             <View style={styles.header}>
                 <Text style={styles.title}>
                     {title}
-                    <Text>
-                        <CircleCheck> color= "red size={32}"</CircleCheck> </Text>
                 </Text>
-
+                <CircleCheck color={'green'} size={32} />
             </View>
-            <Text style={styles.description}>{desc}</Text>
+
+            <Text style={styles.description}>{description}</Text>
+
             <TouchableOpacity
                 style={styles.button}
                 onPress={onClick}>
-                <Text>
-                    {status === "Done" ? 'Deletar' : 'Check'}
+                <Text style={styles.buttonText}>
+                    {status === "Done" ? "Deletar" : "Check"}
                 </Text>
-
             </TouchableOpacity>
         </View>
-
     )
 }
-
 
 const styles = StyleSheet.create({
     card: {
@@ -39,27 +35,33 @@ const styles = StyleSheet.create({
         elevation: 3,
         marginVertical: 10
     },
+
     header: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        marginBottom: 10,
+        marginBottom: 10
     },
+
     title: {
-        fontSize: 14,
+        fontSize: 16,
         fontWeight: 'bold',
         color: '#333'
     },
+
     status: {
         fontSize: 14,
         fontWeight: 'bold',
         textTransform: 'uppercase'
     },
+
     description: {
-        fontSize: 16,
+        fontSize: 14,
         color: '#666',
         marginBottom: 10
+
     },
+
     button: {
         backgroundColor: '#d33f49',
         paddingVertical: 10,
@@ -71,5 +73,6 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: 'bold'
     }
-});
-export default TaskCard;
+})
+
+export default Taskcard 
